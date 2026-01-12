@@ -114,13 +114,24 @@ switch (day)
 ### Bug Example (Missing `break`)
 
 ```java
-Day day = Day.FRIDAY;
+//Switch statement
+Days day = Days.FRIDAY;
 
-switch (day) {
-    case MONDAY, FRIDAY, SUNDAY:
+switch (day) 
+{
+    case MONDAY:
+    case FRIDAY:
+    case SUNDAY:
         System.out.println(6);
     case TUESDAY:
         System.out.println(7);
+        break;
+    case THURSDAY:
+    case SATURDAY:
+        System.out.println(8);
+        break;
+    case WEDNESDAY:
+        System.out.println(9);
         break;
 }
 ```
