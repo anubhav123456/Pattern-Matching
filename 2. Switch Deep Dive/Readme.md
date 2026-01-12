@@ -170,14 +170,25 @@ switch (day) {
 ### Old Workaround Using Variable
 
 ```java
-int count = 0;
+Days day = Days.FRIDAY;
 
-switch (day) {
-    case MONDAY, FRIDAY, SUNDAY:
+int count = 0;
+switch (day) 
+{
+    case MONDAY:
+    case FRIDAY:
+    case SUNDAY:
         count = 6;
         break;
     case TUESDAY:
         count = 7;
+        break;
+    case THURSDAY:
+    case SATURDAY:
+        count = 8;
+        break;
+    case WEDNESDAY:
+        count = 9;
         break;
 }
 
