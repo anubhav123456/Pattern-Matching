@@ -114,6 +114,16 @@ if (obj instanceof String s || s.length() > 5)
 
 Reason: `s` may not be initialized.
 
+```java
+ Object obj = 5;
+ 
+if(obj instanceof Integer i || obj instanceof String s)
+{
+    System.out.println(i);
+}
+```
+In pattern matching, variables introduced in different OR branches are not definitely assigned together, so they cannot be used inside the common block.
+
 ---
 
 ## 🔹 Scope rules (important for interviews)
