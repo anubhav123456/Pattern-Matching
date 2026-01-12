@@ -126,6 +126,96 @@ In pattern matching, variables introduced in different OR branches are not defin
 
 ---
 
+## ✅ Correct way (separate blocks)
+```java
+ Object obj = 5;
+ 
+if(obj instanceof Integer i)
+{
+    System.out.println(i);
+}
+else if(obj instanceof String s)
+{
+    System.out.println(s);
+} 
+```
+
+---
+## 🔹 Pattern matching with interfaces
+
+* Without Pattern Maching
+```java
+interface Vehicle
+{
+    void drive();
+}
+
+class TwoWheeler implements Vehicle
+{
+
+    @Override
+    public void drive()
+    {
+        System.out.println("Two wheeler drive implementation");
+    }
+}
+
+class FourWheeler implements Vehicle
+{
+
+    @Override
+    public void drive()
+    {
+        System.out.println("Four wheeler drive implementation");
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Object obj = new TwoWheeler();
+        if(obj instanceof TwoWheeler)
+        {
+            TwoWheeler obj1 = (TwoWheeler) obj;
+            obj1.drive();
+        }
+        else if(obj instanceof FourWheeler)
+        {
+            FourWheeler obj2 = (FourWheeler) obj;
+            obj2.drive();
+        }
+    }
+}
+```
+
+```
+Two wheeler drive implementation
+```
+
+* With Pattern Maching
+
+```java
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Object obj = new TwoWheeler();
+        
+        if(obj instanceof Vehicle v)
+        {
+            v.drive();
+        }
+
+    }
+}
+```
+
+```
+Two wheeler drive implementation
+```
+---
+
 ## 🔹 Scope rules (important for interviews)
 
 ```java
