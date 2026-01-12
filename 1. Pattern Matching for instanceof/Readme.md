@@ -104,7 +104,10 @@ if (obj instanceof Integer i && i < 10)
 ## 🔸 NOT allowed ❌
 
 ```java
-if (obj instanceof String s || s.length() > 5) {
+Object obj = 5;
+
+if (obj instanceof String s || s.length() > 5) 
+{
     // Compile-time error
 }
 ```
