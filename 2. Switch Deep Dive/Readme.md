@@ -48,11 +48,41 @@ switch (day) {
 ### Old Way (Multiple Lines)
 
 ```java
-case MONDAY:
-case FRIDAY:
-case SUNDAY:
-    System.out.println(6);
-    break;
+public class Main 
+{
+    // Defining the Enum used in the switch
+    enum Days {
+        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    }
+
+    public static void main(String[] args) 
+    {
+        Days day = Days.FRIDAY;
+
+        // Switch statement as shown in the image
+        switch (day) 
+        {
+            case MONDAY:
+            case FRIDAY:
+            case SUNDAY:
+                System.out.println(6);
+                break;
+                
+            case TUESDAY:
+                System.out.println(7);
+                break;
+                
+            case THURSDAY:
+            case SATURDAY:
+                System.out.println(8);
+                break;
+                
+            case WEDNESDAY:
+                System.out.println(9);
+                break;
+        }
+    }
+}
 ```
 
 ### Java 14 Solution: Comma-Separated Labels
