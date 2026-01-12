@@ -212,9 +212,9 @@ int count = switch (day) {
 };
 ```
 
-✔ Cleaner
-✔ Immutable
-✔ Expression-based
+* ✔ Cleaner
+* ✔ Immutable
+* ✔ Expression-based
 
 ⚠ **Semicolon is mandatory** after switch expression
 
@@ -253,8 +253,9 @@ int count = switch (day) {
 
 ```java
 int count = switch (day) {
-    case MONDAY -> 6;
-    case TUESDAY -> 7;
+    case MONDAY    -> 6;
+    case THURSDAY  -> 8;
+    case WEDNESDAY -> 9;
 };
 ```
 
@@ -267,17 +268,35 @@ Switch expression does not cover all possible input values
 ### Fix #1: Cover All Enum Values
 
 ```java
-case WEDNESDAY -> 9;
-case THURSDAY -> 8;
-case FRIDAY -> 6;
-case SATURDAY -> 8;
-case SUNDAY -> 6;
+int count = switch (day) {
+    case MONDAY, FRIDAY, SUNDAY -> 6;
+    case TUESDAY -> 7;
+    case THURSDAY, SATURDAY -> 8;
+    case WEDNESDAY -> 9;
+};
 ```
 
 ### Fix #2: Use `default`
 
 ```java
-default -> throw new IllegalStateException("Unexpected value");
+int count = switch (day) {
+    case MONDAY    -> 6;
+    case THURSDAY  -> 8;
+    case WEDNESDAY -> 9;
+    default -> 0;
+};
+
+```
+or
+
+```java
+int count = switch (day) 
+{
+    case MONDAY    -> 6;
+    case THURSDAY  -> 8;
+    case WEDNESDAY -> 9;
+    default -> throw new IllegalArgumentException("not allowed");
+};
 ```
 
 ---
