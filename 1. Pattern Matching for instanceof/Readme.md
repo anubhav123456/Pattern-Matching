@@ -5,7 +5,11 @@
 ## ❌ Old way (before Java 16)
 
 ```java
-if (obj instanceof String) {
+
+Object obj = "Hello";
+
+if (obj instanceof String) 
+{
     String s = (String) obj;
     System.out.println(s.length());
 }
@@ -22,7 +26,10 @@ Problems:
 ## ✅ New way: Pattern Matching for `instanceof` (Java 16+)
 
 ```java
-if (obj instanceof String s) {
+Object obj = "Hello";
+
+if (obj instanceof String s) 
+{
     System.out.println(s.length());
 }
 ```
@@ -53,13 +60,15 @@ The variable is:
 ## 🔸 Example with custom class
 
 ```java
-class User {
+class User 
+{
     String name;
 }
 
 Object obj = new User();
 
-if (obj instanceof User u) {
+if (obj instanceof User u) 
+{
     System.out.println(u.name);
 }
 ```
@@ -69,12 +78,26 @@ if (obj instanceof User u) {
 ## 🔹 With logical conditions
 
 ```java
-if (obj instanceof String s && s.length() > 5) {
+Object obj = "Hello";
+
+if (obj instanceof String s && s.length() > 5) 
+{
     System.out.println("Long string");
 }
 ```
 
 👉 `s` is available **after** the `instanceof` check passes.
+
+```java
+Object obj = 5;
+
+if (obj instanceof Integer i && i < 10) 
+{
+    System.out.println(i);
+}
+
+👉 `i` is available **after** the `instanceof` check passes.
+```
 
 ---
 
@@ -107,10 +130,14 @@ System.out.println(s.length());
 ## 🔥 Real-world use (you’ll love this in backend)
 
 ```java
-public void process(Object obj) {
-    if (obj instanceof Order order) {
+public void process(Object obj) 
+{
+    if (obj instanceof Order order) 
+    {
         order.process();
-    } else if (obj instanceof Customer customer) {
+    } 
+    else if (obj instanceof Customer customer) 
+    {
         customer.notifyUser();
     }
 }
